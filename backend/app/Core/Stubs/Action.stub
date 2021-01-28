@@ -2,7 +2,7 @@
 
 namespace Domain\{{context}}\Actions;
 
-use App\Support\Action\BaseAction;
+use Support\Abstracts\Action\BaseAction;
 
 class {{action_name}} extends BaseAction
 {

@@ -5,7 +5,7 @@ namespace Application\Api\{{context}}\Http\Controllers;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
-use Support\Controller\ApiController;
+use Support\Abstracts\Controller\ApiController;
 
 class {{controller_name}} extends ApiController
 {

@@ -2,7 +2,7 @@
 
 namespace Application\Api\{{context}}\Http\Validators;
 
-use Support\Validator\BaseValidator;
+use Support\Abstracts\Validator\BaseValidator;
 
 class {{validator_name}} extends BaseValidator
 {
