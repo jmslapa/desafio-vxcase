@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 class {{pivot_name}} extends Pivot
 {
     /**
+     * Nome do campo que utilizado como primary key
+     *
+     * @var mixed
+     */
+    // protected $primaryKey = 'id';
+
+    /**
      * Nome da tabela que representa o model no banco de dados
      *
      * @var mixed
@@ -16,12 +23,25 @@ class {{pivot_name}} extends Pivot
     /**
      * Definição do nome do campo timestamp de criação
      */
-    const CREATED_AT = 'dtc_criacao';
+    // const CREATED_AT = 'criacao';
 
     /**
      * Definição do nome do campo timestamp de atualização
      */
-    const UPDATED_AT = 'dtc_atualizacao';
+    // const UPDATED_AT = 'atualizacao';
+
+    /**
+     * Definição dos campos que são datas
+     */
+    protected $dates = [
+        'criacao',
+        'atualizacao',
+    ];
+
+    /**
+     * Definição do formato dos campos data
+     */
+    protected $dateFormat = 'Y-m-d H:i:s';
 
     /**
      * Atributos que não são aptos à atribuição em massa
@@ -29,9 +49,10 @@ class {{pivot_name}} extends Pivot
      * @var array
      */
     protected $guarded = [
-        'uuid',
-        'dtc_criacao',
-        'dtc_atualizacao',
+        'id'
+        'slug',
+        'criacao',
+        'atualizacao',
     ];
     
     /**
@@ -49,7 +70,7 @@ class {{pivot_name}} extends Pivot
      * @var array
      */
     protected $hidden = [
-        //
+        'id'
     ];
 
     /**
@@ -58,7 +79,15 @@ class {{pivot_name}} extends Pivot
      * @var array
      */
     protected $casts = [
-        'dtc_criacao' => 'timestamp',
-        'dtc_atualizacao' => 'timestamp',
+        'status' => 'boolean',
+        'criacao' => DateCast::class.':America/Sao_Paulo,d/m/Y H:i:s:',
+        'atualizacao' => DateCast::class.':America/Sao_Paulo,d/m/Y H:i:s:',
+    ];
+
+    /**
+     * Mutators a serem adicionados
+     */
+    protected $appends = [
+        //
     ];
 }

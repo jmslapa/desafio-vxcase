@@ -12,7 +12,7 @@ class {{model_name}} extends Model
      *
      * @var mixed
      */
-    // protected $primaryKey = ;
+    // protected $primaryKey = 'id';
 
     /**
      * Nome da tabela que representa o model no banco de dados
@@ -24,25 +24,25 @@ class {{model_name}} extends Model
     /**
      * Definição do nome do campo timestamp de criação
      */
-    const CREATED_AT = 'dtc_criacao';
+    // const CREATED_AT = 'criacao';
 
     /**
      * Definição do nome do campo timestamp de atualização
      */
-    const UPDATED_AT = 'dtc_atualizacao';
+    // const UPDATED_AT = 'atualizacao';
 
     /**
      * Definição dos campos que são datas
      */
     protected $dates = [
-        'dtc_criacao',
-        'dtc_atualizacao',
+        'criacao',
+        'atualizacao',
     ];
 
     /**
      * Definição do formato dos campos data
      */
-    protected $dateFormat = 'Ymd H:i:s';
+    protected $dateFormat = 'Y-m-d H:i:s';
 
     /**
      * Atributos que não são aptos à atribuição em massa
@@ -50,9 +50,10 @@ class {{model_name}} extends Model
      * @var array
      */
     protected $guarded = [
-        'uuid',
-        'dtc_criacao',
-        'dtc_atualizacao',
+        'id'
+        'slug',
+        'criacao',
+        'atualizacao',
     ];
     
     /**
@@ -70,7 +71,7 @@ class {{model_name}} extends Model
      * @var array
      */
     protected $hidden = [
-        //
+        'id'
     ];
 
     /**
@@ -79,7 +80,15 @@ class {{model_name}} extends Model
      * @var array
      */
     protected $casts = [
-        'dtc_criacao' => DateCast::class.':America/Sao_Paulo,d/m/Y H:i:s:',
-        'dtc_atualizacao' => DateCast::class.':America/Sao_Paulo,d/m/Y H:i:s:',
+        'status' => 'boolean',
+        'criacao' => DateCast::class.':America/Sao_Paulo,d/m/Y H:i:s:',
+        'atualizacao' => DateCast::class.':America/Sao_Paulo,d/m/Y H:i:s:',
+    ];
+
+    /**
+     * Mutators a serem adicionados
+     */
+    protected $appends = [
+        //
     ];
 }
