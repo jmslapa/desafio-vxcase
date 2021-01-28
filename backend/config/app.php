@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'pt_BR',
 
     /*
     |--------------------------------------------------------------------------
@@ -175,6 +175,11 @@ return [
         Core\Providers\EventServiceProvider::class,
         Core\Providers\RouteServiceProvider::class,
 
+        /**
+         * Api Service Providers
+         */
+        //@new_provider
+
     ],
 
     /*
@@ -228,5 +233,11 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
+    
+    'layers' => [
+        'application' => app_path().DIRECTORY_SEPARATOR.'Application'.DIRECTORY_SEPARATOR,
+        'domain' => app_path().DIRECTORY_SEPARATOR.'Domain'.DIRECTORY_SEPARATOR,
+        'support' => app_path().DIRECTORY_SEPARATOR.'Support'.DIRECTORY_SEPARATOR,
+    ]
 
 ];
