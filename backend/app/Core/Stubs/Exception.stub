@@ -1,0 +1,10 @@
+<?php
+
+namespace Application\Api\{{context}}\Exceptions;
+
+use Exception;
+
+class {{exception_name}} extends Exception
+{
+    //
+}

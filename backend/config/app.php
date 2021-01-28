@@ -236,6 +236,7 @@ return [
     
     'layers' => [
         'application' => app_path().DIRECTORY_SEPARATOR.'Application'.DIRECTORY_SEPARATOR,
+        'core' => app_path().DIRECTORY_SEPARATOR.'Core'.DIRECTORY_SEPARATOR,
         'domain' => app_path().DIRECTORY_SEPARATOR.'Domain'.DIRECTORY_SEPARATOR,
         'support' => app_path().DIRECTORY_SEPARATOR.'Support'.DIRECTORY_SEPARATOR,
     ]

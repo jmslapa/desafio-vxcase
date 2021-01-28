@@ -1,0 +1,85 @@
+<?php
+
+namespace Domain\{{context}}\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Support\Casts\DateCast;
+
+class {{model_name}} extends Model
+{
+    /**
+     * Nome do campo que utilizado como primary key
+     *
+     * @var mixed
+     */
+    // protected $primaryKey = ;
+
+    /**
+     * Nome da tabela que representa o model no banco de dados
+     *
+     * @var mixed
+     */
+    // protected $table = ;
+    
+    /**
+     * Definição do nome do campo timestamp de criação
+     */
+    const CREATED_AT = 'dtc_criacao';
+
+    /**
+     * Definição do nome do campo timestamp de atualização
+     */
+    const UPDATED_AT = 'dtc_atualizacao';
+
+    /**
+     * Definição dos campos que são datas
+     */
+    protected $dates = [
+        'dtc_criacao',
+        'dtc_atualizacao',
+    ];
+
+    /**
+     * Definição do formato dos campos data
+     */
+    protected $dateFormat = 'Ymd H:i:s';
+
+    /**
+     * Atributos que não são aptos à atribuição em massa
+     *
+     * @var array
+     */
+    protected $guarded = [
+        'uuid',
+        'dtc_criacao',
+        'dtc_atualizacao',
+    ];
+    
+    /**
+     * Atributos que são aptos à atribuição em massa
+     *
+     * @var array
+     */
+    protected $fillable = [
+        //
+    ];
+
+    /**
+     * Atributos que serão ocultados por padrão.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        //
+    ];
+
+    /**
+     * Casts de propriedades
+     *
+     * @var array
+     */
+    protected $casts = [
+        'dtc_criacao' => DateCast::class.':America/Sao_Paulo,d/m/Y H:i:s:',
+        'dtc_atualizacao' => DateCast::class.':America/Sao_Paulo,d/m/Y H:i:s:',
+    ];
+}

@@ -1,0 +1,19 @@
+<?php
+
+namespace Application\Api\{{context}}\Http\Resources;
+
+use Illuminate\Http\Resources\Json\JsonResource;
+
+class {{resource_name}} extends JsonResource
+{
+    /**
+     * Transforma o recurso recebido por parâmetro em um array
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    public function toArray($request)
+    {
+        return parent::toArray($request);
+    }
+}

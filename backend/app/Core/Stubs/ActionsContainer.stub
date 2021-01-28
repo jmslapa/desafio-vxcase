@@ -1,0 +1,8 @@
+<?php
+
+namespace Domain\{{context}}\ActionsContainers;
+
+class {{container_name}}
+{
+    //
+}

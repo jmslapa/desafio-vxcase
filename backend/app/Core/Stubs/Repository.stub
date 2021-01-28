@@ -1,0 +1,10 @@
+<?php
+
+namespace Domain\{{context}}\Repositories;
+
+use Support\Repository\BaseRepository;
+
+class {{repository_name}} extends BaseRepository
+{
+    //
+}

@@ -1,0 +1,21 @@
+<?php
+
+namespace Application\Api\{{context}}\Http\Validators;
+
+use Support\Validator\BaseValidator;
+
+class {{validator_name}} extends BaseValidator
+{
+    protected function registerRules()
+    {
+        // Regras da action store
+        $this->bind('store', [
+            //
+        ]);
+
+        // Regras da action update
+        $this->bind('update', [
+            //
+        ]);
+    }
+}

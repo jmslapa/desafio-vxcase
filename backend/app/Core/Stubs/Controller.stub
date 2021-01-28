@@ -1,0 +1,39 @@
+<?php
+
+namespace Application\Api\{{context}}\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Support\Controller\ApiController;
+
+class {{controller_name}} extends ApiController
+{
+    public function bindActionsContainer()
+    {
+        // $this->actions = ;
+    }
+
+    public function index(Request $request) 
+    {
+       //
+    }
+
+    public function show($identifier)
+    {
+        //
+    }
+
+    public function store(Request $request)
+    {
+        //
+    }
+
+    public function update(Request $request, $identifier)
+    {
+        //
+    }
+
+    public function destroy($identifier)
+    {
+        //
+    }
+}

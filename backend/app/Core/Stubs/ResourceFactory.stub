@@ -1,0 +1,16 @@
+<?php
+
+namespace Application\{{context}}\Http\ResourceFactories;
+
+use Support\Contracts\ResourceFactoryContract;
+
+class {{factory_name}} implements ResourceFactoryContract
+{
+    public function make($resource) {
+        //
+    }
+
+    public function makeCollection($resource) {
+        //
+    }
+}

@@ -13,7 +13,19 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        \Core\Console\Commands\CreateContext::class,
+        \Core\Console\Commands\CreateController::class,
+        \Core\Console\Commands\CreateMiddleware::class,        
+        \Core\Console\Commands\CreateResource::class,        
+        \Core\Console\Commands\CreateValidator::class,               
+        \Core\Console\Commands\CreateException::class,               
+        \Core\Console\Commands\CreateProvider::class,               
+        \Core\Console\Commands\CreateAction::class,
+        \Core\Console\Commands\CreateActionsContainer::class,
+        \Core\Console\Commands\CreateResourceFactory::class,
+        \Core\Console\Commands\CreateModel::class,
+        \Core\Console\Commands\CreateRepository::class,
+        \Core\Console\Commands\CreatePivot::class,
     ];
 
     /**
