@@ -178,6 +178,7 @@ return [
         /**
          * Api Service Providers
          */
+        Application\Produto\Providers\ProdutoProvider::class,
         //@new_provider
 
     ],
