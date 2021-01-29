@@ -14,7 +14,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'Core\Http\Controllers';
+    protected $namespace = 'Application';
 
     /**
      * The path to the "home" route for your application.
@@ -44,7 +44,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->mapApiRoutes();
 
-        $this->mapWebRoutes();
+        // $this->mapWebRoutes();
 
         //
     }
