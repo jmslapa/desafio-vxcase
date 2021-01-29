@@ -27,7 +27,7 @@ class DateCast implements CastsAttributes
      */
     public function get($model, $key, $value, $attributes)
     {
-        return Carbon::parse($value)->timezone($this->timezone)->format($this->format);
+        return $value ? Carbon::parse($value)->timezone($this->timezone)->format($this->format) : null;
     }
 
     /**
