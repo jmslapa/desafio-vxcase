@@ -4,9 +4,7 @@ namespace Support\Abstracts\Repository;
 
 use Illuminate\Database\Eloquent\Model;
 use Support\Contracts\RepositoryContract;
-use Illuminate\Support\Str;
 use Support\Utils\Date;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 abstract class BaseRepository implements RepositoryContract
 {
@@ -25,17 +23,14 @@ abstract class BaseRepository implements RepositoryContract
         return $this->model->all();
     }
 
-    public function find($identifier)
+    public function find($id)
     {
-        if(!Str::isUuid($identifier)) {
-            throw new NotFoundHttpException('O recurso solicitado não existe ou está inacessível.');
-        }
-        return $this->model->where('uuid', '=', $identifier)->firstOrFail();
+        return $this->model->findOrFail($id);
     }
 
-    public function findMultiples($identifiers)
+    public function findMany($ids)
     {
-        return $this->model->whereIn('uuid', $identifiers)->get();
+        return $this->model->findMany($ids);
     }
 
     public function save($dados)
@@ -43,15 +38,15 @@ abstract class BaseRepository implements RepositoryContract
         return $this->model->create($dados)->refresh();
     }
 
-    public function update($identifier, $dados)
+    public function update($id, $dados)
     {
-        $model = $this->find($identifier);
+        $model = $this->find($id);
         return $model->update($dados);
     }
 
-    public function delete($identifier)
+    public function delete($id)
     {
-        $model = $this->find($identifier);
+        $model = $this->find($id);
         return $model->delete();
     }
 
@@ -61,8 +56,7 @@ abstract class BaseRepository implements RepositoryContract
 
         foreach ($filters as [$field, $operator, $value]) {
             if($operator === 'between') {
-                $values = Date::instantiateFromFormat('d/m/Y', explode('__and__', $value));
-                $query->whereBetween($field, $values);
+                $query->whereBetween($field, $value);
                 continue;
             }
             $query->where($field, $operator, $value);

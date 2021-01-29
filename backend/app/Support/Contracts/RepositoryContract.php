@@ -14,10 +14,10 @@ interface RepositoryContract
      /**
      * Método que retorna todos registros atravez do identificador único
      * 
-     * @param mixed $identifier identificador único
+     * @param mixed $id identificador único
      * @return mixed
      */
-     public function find($identifier);
+     public function find($id);
 
      /**
      * Método que retorna todos registros atravez do identificador único
@@ -31,19 +31,19 @@ interface RepositoryContract
       * Método que atualiza um registro no banco de dados atravez do 
       * identificador único
       *
-      * @param mixed $identifier identificador único
+      * @param mixed $id identificador único
       * @param array $dados array associativo com dados a serem persistidos
       * @return void
       */
-     public function update($identifier, $dados);
+     public function update($id, $dados);
 
      /**
      * Método que exclui um registro atravez do identificador único
      * 
-     * @param mixed $identifier identificador único
+     * @param mixed $id identificador único
      * @return void
      */
-     public function delete($identifier);
+     public function delete($id);
 
      /**
      * Método que retorna o resultado de uma consulta ao banco de dados
