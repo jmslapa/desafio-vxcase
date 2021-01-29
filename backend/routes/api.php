@@ -14,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+##### Produtos ######################################################################
+Route::namespace('Produto\Http\Controllers')->group(function () {
+
+    // Api CRUD routes
+    Route::apiResource('produtos', 'ProdutoController');
+
+    // Independent routes
+    Route::prefix('produtos')->name('produtos.')->group(function () {
+        Route::patch('{produto}/capa', 'ProdutoController@uploadCapa')->name('upload.capa');
+        Route::delete('{produto}/capa', 'ProdutoController@removeCapa')->name('remove.capa');
+    });
 });
