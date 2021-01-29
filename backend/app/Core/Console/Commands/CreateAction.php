@@ -43,7 +43,7 @@ class CreateAction extends Command
     {
         $ds = DIRECTORY_SEPARATOR;
         $domain_path = config('app.layers.domain');
-        $application_path = config('app.layers.application').'Api'.$ds;
+        $application_path = config('app.layers.application');
         $context = $this->argument('context');
         $action_name = $this->argument('name');
         $stub_path = config('app.layers.core')."Stubs{$ds}Action.stub";

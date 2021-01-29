@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\Api\{{context}}\Providers;
+namespace Application\{{context}}\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Support\Contracts\ProviderContract;

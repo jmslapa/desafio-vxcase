@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\Api\{{context}}\Http\Validators;
+namespace Application\{{context}}\Http\Validators;
 
 use Support\Abstracts\Validator\BaseValidator;
 
