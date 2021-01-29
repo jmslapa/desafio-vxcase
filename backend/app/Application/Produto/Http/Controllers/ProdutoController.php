@@ -5,7 +5,7 @@ namespace Application\Produto\Http\Controllers;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
-use Support\Abstracts\ControllerController;
+use Support\Abstracts\Controller\ApiController;
 
 class ProdutoController extends ApiController
 {
