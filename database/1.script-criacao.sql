@@ -8,6 +8,7 @@ create table produto(
     preco decimal(8,2) not null,    
     entrega tinyint not null,
     slug varchar(50) not null,
+    capa varchar(255),
     criacao datetime,
     atualizacao datetime,
     
