@@ -56,7 +56,7 @@ class CreateProvider extends Command
 
             $stub_path = config('app.layers.core')."Stubs{$ds}RegisterNewProvider.stub";
             $config_path = config_path('app.php');
-            $provider_class = "Application\\Api\\{$context}\\Providers\\{$provider_name}::class";
+            $provider_class = "Application\\{$context}\\Providers\\{$provider_name}::class";
             $content = File::get($stub_path);
             $content = str_replace('{{provider_class}}', $provider_class, $content);
             $config_content = File::get($config_path);
