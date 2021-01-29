@@ -82,6 +82,9 @@ class ProdutoProvider extends ServiceProvider implements ProviderContract
      */
     public function registerActions()
     {
+		app()->bind('excluirProduto', \Domain\Produto\Actions\ExcluirProduto::class);
+		app()->bind('exibirProduto', \Domain\Produto\Actions\ExibirProduto::class);
+		app()->bind('listarProdutos', \Domain\Produto\Actions\ListarProdutos::class);
         //
     }
 

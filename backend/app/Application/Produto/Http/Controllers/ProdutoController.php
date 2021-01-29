@@ -17,8 +17,8 @@ class ProdutoController extends ApiController
     public function index(Request $request) 
     {
        try{
-            // $resource = $this->actions->;
-            // return $this->factory->makeCollection($resource)->toResponse(null);
+            $resource = $this->actions->listarProdutos();
+            return $this->factory->makeCollection($resource)->toResponse(null);
         }catch(QueryException $e) {
             return $this->errorResponse($e, 500);
         }catch(ModelNotFoundException $e) {
@@ -29,8 +29,8 @@ class ProdutoController extends ApiController
     public function show($identifier)
     {
         try{
-            // $resource = $this->actions->;
-            // return $this->factory->make($resource)->toResponse(null);
+            $resource = $this->actions->exibirProduto($identifier);
+            return $this->factory->make($resource)->toResponse(null);
         }catch(QueryException $e) {
             return $this->errorResponse($e, 500);
         }catch(ModelNotFoundException $e) {
@@ -67,8 +67,8 @@ class ProdutoController extends ApiController
     public function destroy($identifier)
     {
         try{
-            // $resource = $this->actions->;
-            // return response()->json(null, 204);
+            $resource = $this->actions->excluirProduto($identifier);
+            return response()->json(null, 204);
         }catch(QueryException $e) {
             return $this->errorResponse($e, 500);
         }catch(ModelNotFoundException $e) {
