@@ -35,7 +35,7 @@ abstract class BaseRepository implements RepositoryContract
 
     public function save($dados)
     {
-        return $this->model->create($dados)->refresh();
+        return $this->model->create($dados);
     }
 
     public function update($id, $dados)
