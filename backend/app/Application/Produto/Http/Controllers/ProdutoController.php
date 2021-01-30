@@ -76,12 +76,37 @@ class ProdutoController extends ApiController
         }
     }
 
+    /**
+     * Realiza o upload de uma imagem capa e atualiza o registro no banco de dados
+     *
+     * @param Request $request
+     * @param mixed $identifier
+     * @return Illuminate\Http\Response
+     */
     public function uploadCapa(Request $request, $identifier)
     {
         try{
             $data = $this->validator->validate('uploadCapa', $request->all());
             $resource = $this->actions->editarCapaProduto($identifier, $data);
             return $this->factory->make($resource)->toResponse(null, 202);
+        }catch(QueryException $e) {
+            return $this->errorResponse($e, 500);
+        }catch(ModelNotFoundException $e) {
+            return $this->errorResponse($e, 404);
+        }
+    }
+
+    /**
+     * Remove a imagem de capa e atualiza o registro no banco de dados
+     *
+     * @param mixed $identifier
+     * @return Illuminate\Http\Response
+     */
+    public function removeCapa($identifier)
+    {
+        try{
+            $resource = $this->actions->removerCapaProduto($identifier);
+            return response()->json(null, 204);
         }catch(QueryException $e) {
             return $this->errorResponse($e, 500);
         }catch(ModelNotFoundException $e) {

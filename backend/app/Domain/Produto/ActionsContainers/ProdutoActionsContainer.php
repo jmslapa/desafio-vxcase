@@ -5,6 +5,16 @@ namespace Domain\Produto\ActionsContainers;
 class ProdutoActionsContainer
 {
 	/**
+	 * Executa a ação RemoverCapaProduto
+	 *
+	 * @return mixed
+	 */
+	public function removerCapaProduto(string $slug)
+	{
+		return app('removerCapaProduto')->execute($slug);
+	}
+
+	/**
 	 * Executa a ação EditarCapaProduto
 	 *
 	 * @return mixed
