@@ -11,6 +11,16 @@ class Produto extends Model
     use Sluggable;
 
     /**
+     * Retorna uma string contendo o nome do atributo a ser utilizado como base para a geração do
+     *
+     * @return string
+     */
+    protected static function getSluggableAttribute() :string
+    {
+        return 'nome';
+    }
+
+    /**
      * Nome do campo que utilizado como primary key
      *
      * @var mixed
@@ -68,6 +78,7 @@ class Produto extends Model
         'nome',
         'preco',
         'entrega',
+        'capa'
     ];
 
     /**
