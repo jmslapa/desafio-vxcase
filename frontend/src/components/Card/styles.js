@@ -58,17 +58,31 @@ export const Wrapper = styled.div`
         margin-top: 10px;
         padding-top: 10px;
 
-        > button {
-            ${theme};
-            font-weight: 600;
-            color: var(--danger-lighter);
+        > button {            
+            font-weight: 600;            
             transition: 0.05s;
 
-            :hover {
+            &.add {
                 ${theme};
-                transform: scale(1.15);
-                color: var(--danger);
+                color: var(--danger-lighter);
+
+                :hover {
+                    ${theme};
+                    transform: scale(1.15);
+                    color: var(--danger);
+                }
             }
+
+            &.remove {
+                ${theme};
+                color: var(--success-lighter);
+
+                :hover {
+                    ${theme};
+                    transform: scale(1.15);
+                    color: var(--success);
+                }
+            }            
 
             svg {
                 pointer-events: none;
