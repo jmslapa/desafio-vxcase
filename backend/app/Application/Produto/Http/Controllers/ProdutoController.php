@@ -75,4 +75,17 @@ class ProdutoController extends ApiController
             return $this->errorResponse($e, 404);
         }
     }
+
+    public function uploadCapa(Request $request, $identifier)
+    {
+        try{
+            $data = $this->validator->validate('uploadCapa', $request->all());
+            $resource = $this->actions->editarCapaProduto($identifier, $data);
+            return $this->factory->make($resource)->toResponse(null, 202);
+        }catch(QueryException $e) {
+            return $this->errorResponse($e, 500);
+        }catch(ModelNotFoundException $e) {
+            return $this->errorResponse($e, 404);
+        }
+    }
 }
