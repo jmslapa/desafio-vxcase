@@ -51,7 +51,7 @@ class ProdutoVenda extends Pivot
      * @var array
      */
     protected $hidden = [
-        'id',
+        //
     ];
 
     /**

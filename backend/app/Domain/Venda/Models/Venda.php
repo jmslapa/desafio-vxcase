@@ -73,7 +73,7 @@ class Venda extends Model
      * @var array
      */
     protected $hidden = [
-        'id',
+        // 
     ];
 
     /**
