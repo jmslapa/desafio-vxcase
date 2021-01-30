@@ -9,7 +9,7 @@ export default function search(state = INITIAL_STATE, {type, payload}) {
     switch (type) {
 
       case '@search/CHANGE':
-        draft.value = payload.value.trim();
+        draft.value = payload.value;
       break;
 
       default:
