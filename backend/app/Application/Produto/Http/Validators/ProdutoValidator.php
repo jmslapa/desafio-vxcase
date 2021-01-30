@@ -32,7 +32,9 @@ class ProdutoValidator extends BaseValidator
 
         // Regras da action update
         $this->bind('update', [
-            //
+            'nome' => ['required', 'string', 'between:3,50'],
+            'preco' => ['required', 'regex:/^\d{1,8},\d{2}$/'],
+            'entrega' => ['required', 'integer', 'between:0,255'],
         ]);
     }
 }
