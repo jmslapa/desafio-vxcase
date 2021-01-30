@@ -35,11 +35,12 @@ trait Sluggable {
     protected static function booted()
     {
         parent::booted();
-        static::creating(function($produto) {
+
+        static::saving(function($sluggable) {
             setlocale(LC_ALL, "en_US.utf8");
-            $asciiAttribute = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $produto->getAttribute(static::getSluggableAttribute()));
-            $produto->slug = Str::slug($asciiAttribute);
-            if($produto->findBySlug($produto->slug, false)) {
+            $asciiAttribute = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $sluggable->getAttribute(static::getSluggableAttribute()));
+            $sluggable->slug = Str::slug($asciiAttribute);
+            if(($temp = $sluggable->findBySlug($sluggable->slug, false)) && $temp->id !== $sluggable->id) {
                 throw new UnprocessableEntityHttpException('Já existe um produto com nome semelhante, realize alguma modificação.');
             }
         });
