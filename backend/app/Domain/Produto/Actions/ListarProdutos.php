@@ -18,6 +18,6 @@ class ListarProdutos extends BaseAction
      */
     public function execute()
     {
-        dd('Listar Produtos');
+        return $this->repository->findAll();
     }
 }
