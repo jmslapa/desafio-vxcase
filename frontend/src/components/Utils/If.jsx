@@ -1,6 +1,4 @@
-export const Else = props => props.children
-
-export default props => {
+const If =  props => {
 
     const elseChild = getElseChild(props.children)
 
@@ -32,3 +30,7 @@ function getPrimaryChildren(children, elseChild) {
     }
     return children;
 }
+
+export default If;
+
+export const Else = props => props.children

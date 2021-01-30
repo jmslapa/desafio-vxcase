@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Wrapper } from './styles';
 import { Bars, ShoppingCart } from 'styled-icons/fa-solid';
 import If, { Else } from '../Utils/If';
@@ -7,15 +7,13 @@ import Row from '../Row';
 
 const TopBar = ({ title }) => {
 
-    const getVw = useCallback(() => Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0), []);
-
-    const [vw, setVw] = useState(getVw());
+    const [vw, setVw] = useState(Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0), []);
 
     const collapsibleSearchInput = useRef(null);
 
     useEffect(() => {
         window.addEventListener('resize', e => {
-            setVw(getVw);
+            setVw(Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0), [])
         });
     }, []);
 

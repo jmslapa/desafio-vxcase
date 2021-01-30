@@ -27,7 +27,7 @@ export const Wrapper = styled.div`
 
     > input[type="text"] {
         ${theme}
-        width: calc(100% -50px);
+        width: calc(100%);
         border: none;
         background: transparent;
         font-weight: 600;
