@@ -17,7 +17,7 @@ class PrecoCast implements CastsAttributes
      */
     public function get($model, $key, $value, $attributes)
     {
-        return $value ? str_replace('.', ',', $value) : null;
+        return $value ? number_format($value, 2, ',', '') : null;
     }
 
     /**
@@ -31,6 +31,6 @@ class PrecoCast implements CastsAttributes
      */
     public function set($model, $key, $value, $attributes)
     {
-        return str_replace(',', '.', $value);
+        return (double) str_replace(',', '.', $value);
     }
 }

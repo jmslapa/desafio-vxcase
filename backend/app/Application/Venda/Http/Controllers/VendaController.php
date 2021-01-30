@@ -41,9 +41,9 @@ class VendaController extends ApiController
     public function store(Request $request)
     {
         try{
-            // $data = $this->validator->validate('store', $request->all());
-            // $resource = $this->actions->;
-            // return $this->factory->make($resource)->toResponse(null, 201);
+            $data = $this->validator->validate('store', $request->all());
+            $resource = $this->actions->efetuarVenda($data);
+            return $this->factory->make($resource)->toResponse(null, 201);
         }catch(QueryException $e) {
             return $this->errorResponse($e, 500);
         }catch(ModelNotFoundException $e) {
