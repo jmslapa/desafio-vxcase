@@ -68,7 +68,7 @@ class VendaController extends ApiController
     {
         try{
             // $resource = $this->actions->;
-            return response()->json(null, 204);
+            //return response()->json(null, 204);
         }catch(QueryException $e) {
             // return $this->errorResponse($e, 500);
         }catch(ModelNotFoundException $e) {
