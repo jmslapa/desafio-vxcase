@@ -36,5 +36,16 @@ class ProdutoValidator extends BaseValidator
             'preco' => ['required', 'regex:/^\d{1,8},\d{2}$/'],
             'entrega' => ['required', 'integer', 'between:0,255'],
         ]);
+
+        // Regras da action update
+        $this->bind('uploadCapa', [
+            'capa' => [
+                'required',
+                'image',
+                'mimes:jpeg,png', 
+                'dimensions:min_width=256,min_height=256,max_width=512,max_height=512,ratio=1/1',
+                'max:2048',
+            ],
+        ]);
     }
 }
