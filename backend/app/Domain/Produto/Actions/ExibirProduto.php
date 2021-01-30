@@ -18,6 +18,6 @@ class ExibirProduto extends BaseAction
      */
     public function execute(string $slug)
     {
-        dd("Exibir Produto: $slug");
+        return $this->repository->findBySlug($slug);
     }
 }
