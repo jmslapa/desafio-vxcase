@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import Card from '../../components/Card';
 import Row from '../../components/Row';
 import Spinner from '../../components/Spinner';
@@ -7,6 +8,8 @@ import api from '../../services/api';
 import errorHandler from '../../services/errorHandler';
 
 const Lista = (props) => {
+
+    const search = useSelector(state => state.search)
 
     const [loading, setLoading] = useState(false);
     const [produtos, setProdutos] = useState([]);
@@ -29,7 +32,12 @@ const Lista = (props) => {
             <Row height="100%" margin="20px 0" wrap="wrap" justify={'space-around'} 
                 overflowY="scroll" overflowX="hidden" noScrollbar
             >
-                {produtos.map(p => <Card produto={p}/>)}
+                {
+                    produtos.filter(p => {
+                        return p.nome.toLowerCase().includes(search.value.trim().toLowerCase()) 
+                            || p.slug.includes(search.value.trim().toLowerCase());
+                    }).map(p => <Card produto={p}/>)
+                }
             </Row>
          </>
     );
