@@ -4,6 +4,7 @@ namespace Domain\Produto\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Support\Casts\DateCast;
+use Support\Casts\PrecoCast;
 use Support\Traits\Sluggable;
 
 class Produto extends Model
@@ -97,6 +98,7 @@ class Produto extends Model
      */
     protected $casts = [
         'status' => 'boolean',
+        'preco' => PrecoCast::class,
         'criacao' => DateCast::class.':America/Sao_Paulo,d/m/Y H:i:s:',
         'atualizacao' => DateCast::class.':America/Sao_Paulo,d/m/Y H:i:s:',
     ];
