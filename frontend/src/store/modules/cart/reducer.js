@@ -4,7 +4,7 @@ const INITIAL_STATE = {
   items: [],
 };
 
-export default function auth(state = INITIAL_STATE, {type, payload}) {
+export default function cart(state = INITIAL_STATE, {type, payload}) {
   return produce(state, draft => {
     switch (type) {
 
