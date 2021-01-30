@@ -12,6 +12,7 @@ export const Spinner = styled.div`
   align-items: center;
   background: ${props => props.background || 'transparent'};
   transform: ${props => `scale(${props.scale || '1'})`};
+  background: ${props => props.background || 'transparend'};
 
   .loader,
   .loader:before,

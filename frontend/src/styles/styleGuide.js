@@ -23,8 +23,7 @@ export const theme = css`
     --secondary-hover-highlight: ${() => Utils.hexToRgba(colors.secondary, 0.15)};
 
     --success: ${colors.success};
-    --success-darker: ${() => Utils.colorLuminosity(colors.success, -50)};
-    --success-lighter: ${() => Utils.colorLuminosity(colors.success, 50)};
+    --success-lighter: ${() => Utils.colorLuminosity(colors.success, 30)};
     --success-hover-highlight: ${() => Utils.hexToRgba(colors.success, 0.15)};
 
     --danger: ${colors.danger};

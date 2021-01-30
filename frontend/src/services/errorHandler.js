@@ -1,7 +1,5 @@
 import history from './history'
 import {toast} from 'react-toastify'
-import {store} from '../store'
-import { signOutSuccess } from '../store/modules/auth/actions'
 
 const defaultMessage = "Não foi possível completar a operação.";
 
@@ -16,7 +14,6 @@ export default function handle(error, message = defaultMessage) {
                 break;
             case 401:
                 history.push('/');
-                store.dispatch(signOutSuccess());
                 break;
             case 422:
                 if(message != defaultMessage) {
