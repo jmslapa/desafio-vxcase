@@ -26,3 +26,15 @@ Route::namespace('Produto\Http\Controllers')->group(function () {
         Route::delete('{produto}/capa', 'ProdutoController@removeCapa')->name('remove.capa');
     });
 });
+
+##### Vendas ########################################################################
+Route::namespace('Venda\Http\Controllers')->group(function () {
+
+    // Api CRUD routes
+    Route::apiResource('vendas', 'VendaController')->except('update', 'destroy');
+
+    // Independent routes
+    Route::prefix('vendas')->name('vendas.')->group(function () {
+        //
+    });
+});
