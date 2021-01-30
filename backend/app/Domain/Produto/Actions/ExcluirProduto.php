@@ -2,7 +2,9 @@
 
 namespace Domain\Produto\Actions;
 
+use Illuminate\Support\Facades\DB;
 use Support\Abstracts\Action\BaseAction;
+use Support\Utils\Image;
 
 class ExcluirProduto extends BaseAction
 {
@@ -18,6 +20,13 @@ class ExcluirProduto extends BaseAction
      */
     public function execute(string $slug)
     {
-        dd("Excluir produto: $slug");
+        $produto = $this->repository->findBySlug($slug);
+        $capa = $produto->capa;
+        DB::transaction(function () use ($produto, $capa) {            
+            $this->repository->delete($produto->id);
+            if($capa) {
+                Image::deleteIfExists($capa, 'public');
+            }
+        });
     }
 }

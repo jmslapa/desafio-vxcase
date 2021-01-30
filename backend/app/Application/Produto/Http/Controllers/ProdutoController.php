@@ -67,7 +67,7 @@ class ProdutoController extends ApiController
     public function destroy($identifier)
     {
         try{
-            $resource = $this->actions->excluirProduto($identifier);
+            $this->actions->excluirProduto($identifier);
             return response()->json(null, 204);
         }catch(QueryException $e) {
             return $this->errorResponse($e, 500);
