@@ -17,8 +17,8 @@ class VendaController extends ApiController
     public function index(Request $request) 
     {
        try{
-            // $resource = $this->actions->;
-            // return $this->factory->makeCollection($resource)->toResponse(null);
+            $resource = $this->actions->listarVendas();
+            return $this->factory->makeCollection($resource)->toResponse(null);
         }catch(QueryException $e) {
             return $this->errorResponse($e, 500);
         }catch(ModelNotFoundException $e) {
@@ -29,8 +29,8 @@ class VendaController extends ApiController
     public function show($identifier)
     {
         try{
-            // $resource = $this->actions->;
-            // return $this->factory->make($resource)->toResponse(null);
+            $resource = $this->actions->exibirVenda($identifier);
+            return $this->factory->make($resource)->toResponse(null);
         }catch(QueryException $e) {
             return $this->errorResponse($e, 500);
         }catch(ModelNotFoundException $e) {

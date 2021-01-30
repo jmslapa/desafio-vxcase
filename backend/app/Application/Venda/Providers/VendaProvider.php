@@ -82,6 +82,8 @@ class VendaProvider extends ServiceProvider implements ProviderContract
      */
     public function registerActions()
     {
+		app()->bind('exibirVenda', \Domain\Venda\Actions\ExibirVenda::class);
+		app()->bind('listarVendas', \Domain\Venda\Actions\ListarVendas::class);
 		app()->bind('efetuarVenda', \Domain\Venda\Actions\EfetuarVenda::class);
         //
     }
