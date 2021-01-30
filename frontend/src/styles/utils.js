@@ -1,10 +1,8 @@
-import styled, { css } from 'styled-components';
-
 export const colorLuminosity = (color, amt) => {
   
     let useHash = false;
   
-    if (color[0] == "#") {
+    if (color[0] === "#") {
         color = color.slice(1);
         useHash = true;
     }

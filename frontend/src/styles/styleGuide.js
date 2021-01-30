@@ -1,14 +1,45 @@
-import styled, { css } from 'styled-components';
-import env from './envConfs';
+import { css } from 'styled-components';
 import * as Utils from './utils';
 
+const colors = {
+    primary: '#1266F1',
+    secondary: '#B23CFD',
+    success: '#00B74A',
+    danger: '#F93154',
+    light: '#FBFBFB',
+    dark: '#262626',
+}
+
 export const theme = css`
---cta: ${() => '#26AAEC'};
---cta-darker: ${() => Utils.colorLuminosity('#26AAEC', -50)};
---cta-lighter: ${() => Utils.colorLuminosity('#26AAEC', 50)};
---hover-highlight: ${() => Utils.hexToRgba('#26AAEC', 0.15)};
---success: #45DC67;
---danger: #DF4742;
+
+    --primary: ${colors.primary};
+    --primary-darker: ${() => Utils.colorLuminosity(colors.primary, -50)};
+    --primary-lighter: ${() => Utils.colorLuminosity(colors.primary, 50)};
+    --primary-hover-highlight: ${() => Utils.hexToRgba(colors.primary, 0.15)};
+
+    --secondary: ${colors.secondary};
+    --secondary-darker: ${() => Utils.colorLuminosity(colors.secondary, -50)};
+    --secondary-lighter: ${() => Utils.colorLuminosity(colors.secondary, 50)};
+    --secondary-hover-highlight: ${() => Utils.hexToRgba(colors.secondary, 0.15)};
+
+    --success: ${colors.success};
+    --success-darker: ${() => Utils.colorLuminosity(colors.success, -50)};
+    --success-lighter: ${() => Utils.colorLuminosity(colors.success, 50)};
+    --success-hover-highlight: ${() => Utils.hexToRgba(colors.success, 0.15)};
+
+    --danger: ${colors.danger};
+    --danger-darker: ${() => Utils.colorLuminosity(colors.danger, -50)};
+    --danger-lighter: ${() => Utils.colorLuminosity(colors.danger, 50)};
+    --danger-hover-highlight: ${() => Utils.hexToRgba(colors.danger, 0.15)};
+
+    --light: ${colors.light};
+    --light-darker: ${() => Utils.colorLuminosity(colors.light, -50)};
+    --light-lighter: ${() => Utils.colorLuminosity(colors.light, 50)};
+    --light-hover-highlight: ${() => Utils.hexToRgba(colors.light, 0.15)};
+
+    --dark: ${colors.dark};
+    --dark-lighter: ${() => Utils.colorLuminosity(colors.dark, 50)};
+    --dark-hover-highlight: ${() => Utils.hexToRgba(colors.dark, 0.15)};
 `;
 
 export const hiddenScrollBar = css`    

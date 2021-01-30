@@ -1,10 +1,13 @@
 import React from 'react';
 import Container from '../../components/Container';
+import TopBar from '../../components/TopBar';
 
-export default props => {
+const Produtos = (props) => {
     return (
         <Container>
-            <h1>Produtos</h1>
+            <TopBar />
         </Container>
     );
 }
+
+export default Produtos;

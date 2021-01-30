@@ -7,8 +7,8 @@ export default function Routes() {
 
   return (
     <Switch>
-      <Route exact path="/" component={Produtos}/>
-      <Redirect from="*" to="/"/>
+      <Route exact path="/produtos" component={Produtos}/>
+      <Redirect from="*" to="/produtos"/>
     </Switch>
   );
 }

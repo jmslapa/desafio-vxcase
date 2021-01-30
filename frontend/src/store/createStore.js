@@ -1,6 +1,6 @@
-import { createStore, compose, applyMiddleware } from 'redux';
+import { createStore as reduxCreateStore, compose, applyMiddleware } from 'redux';
 
-export default (reducers, middlewares) => {
+const createStore = (reducers, middlewares) => {
 
   const composeEnhancers =
   typeof window === 'object' &&
@@ -13,5 +13,7 @@ export default (reducers, middlewares) => {
       ? composeEnhancers(applyMiddleware(...middlewares))
       : compose(applyMiddleware(...middlewares));
 
-  return createStore(reducers, enhancer);
+  return reduxCreateStore(reducers, enhancer);
 };
+
+export default createStore;
