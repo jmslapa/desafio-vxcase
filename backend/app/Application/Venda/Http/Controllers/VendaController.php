@@ -11,7 +11,7 @@ class VendaController extends ApiController
 {
     public function bindActionsContainer()
     {
-        // $this->actions = app('');
+        $this->actions = app('vendaActionsContainer');
     }
 
     public function index(Request $request) 
