@@ -2,6 +2,8 @@
 
 namespace Domain\Produto\Models;
 
+use Domain\Venda\Models\ProdutoVenda;
+use Domain\Venda\Models\Venda;
 use Illuminate\Database\Eloquent\Model;
 use Support\Casts\DateCast;
 use Support\Casts\PrecoCast;
@@ -109,4 +111,16 @@ class Produto extends Model
     protected $appends = [
         //
     ];
+
+    /**
+     * Relacionamento n:n com venda
+     *
+     * @return Collection
+     */
+    public function vendas()
+    {
+        return $this->belongsToMany(Venda::class, 'venda', 'produto_id', 'venda_id')
+                    ->using(ProdutoVenda::class)
+                    ->withPivot(['preco']);
+    }
 }
