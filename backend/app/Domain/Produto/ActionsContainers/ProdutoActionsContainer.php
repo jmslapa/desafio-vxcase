@@ -5,6 +5,16 @@ namespace Domain\Produto\ActionsContainers;
 class ProdutoActionsContainer
 {
 	/**
+	 * Executa a ação CadastrarProduto
+	 *
+	 * @return mixed
+	 */
+	public function cadastrarProduto(array $data)
+	{
+		return app('cadastrarProduto')->execute($data);
+	}
+
+	/**
 	 * Executa a ação ExcluirProduto
 	 *
 	 * @return mixed
