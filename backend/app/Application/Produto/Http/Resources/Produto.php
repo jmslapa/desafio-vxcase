@@ -14,6 +14,11 @@ class Produto extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        $resource = parent::toArray($request);
+        
+        $capa = $resource['capa'] ?? null;
+        $resource['capa'] = $capa ? url("storage/$capa") : null;
+        
+        return $resource;
     }
 }
