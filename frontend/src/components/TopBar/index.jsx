@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Wrapper } from './styles';
 import { Bars, ShoppingCart } from 'styled-icons/fa-solid';
 import If, { Else } from '../Utils/If';
@@ -10,6 +10,8 @@ const TopBar = ({ title }) => {
     const getVw = useCallback(() => Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0), []);
 
     const [vw, setVw] = useState(getVw());
+
+    const collapsibleSearchInput = useRef(null);
 
     useEffect(() => {
         window.addEventListener('resize', e => {
@@ -26,7 +28,7 @@ const TopBar = ({ title }) => {
                         <If condition={vw >= 600}>                    
                             <SearchField />
                             <Else>
-                                <button type="button" className="collapse-toggle">
+                                <button type="button" className="collapse-toggle" onClick={() => collapsibleSearchInput.current.focus()}>
                                     <Bars size={30}/>
                                 </button>
                             </Else>
@@ -36,9 +38,9 @@ const TopBar = ({ title }) => {
                 </Row>
 
                 <If condition={vw < 600}>                    
-                    <Row width="100%" margin="10px 0 0 0">
-                        <SearchField width="100%"/>
-                    </Row>
+                    <div className="collapse">
+                        <SearchField ref={collapsibleSearchInput}/>
+                    </div>
                 </If>
             </Row>
         </Wrapper>

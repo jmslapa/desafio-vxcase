@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { theme } from '../../styles/styleGuide';
+import { fadeIn } from '../../styles/keyframes';
 
 export const Wrapper = styled.div`
     ${theme};
@@ -8,11 +9,11 @@ export const Wrapper = styled.div`
     justify-content: space-between;
     height: 38px;
     width: ${props => props.width || 'auto'};
-    overflow: hidden;
     height: 38px;
     padding: 0 10px;
     background: var(--light);
     border-radius: 8px;
+    animation: ${fadeIn} 0.2s linear;
 
     > svg {
         ${theme}
