@@ -101,8 +101,8 @@ class Produto extends Model
     protected $casts = [
         'status' => 'boolean',
         'preco' => PrecoCast::class,
-        'criacao' => DateCast::class.':America/Sao_Paulo,d/m/Y H:i:s:',
-        'atualizacao' => DateCast::class.':America/Sao_Paulo,d/m/Y H:i:s:',
+        'criacao' => DateCast::class.':America/Sao_Paulo,d/m/Y H:i:s',
+        'atualizacao' => DateCast::class.':America/Sao_Paulo,d/m/Y H:i:s',
     ];
 
     /**
@@ -119,7 +119,7 @@ class Produto extends Model
      */
     public function vendas()
     {
-        return $this->belongsToMany(Venda::class, 'venda', 'produto_id', 'venda_id')
+        return $this->belongsToMany(Venda::class, 'produto_venda', 'produto_id', 'venda_id')
                     ->using(ProdutoVenda::class)
                     ->withPivot(['preco']);
     }

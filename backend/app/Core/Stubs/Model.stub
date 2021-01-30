@@ -81,8 +81,8 @@ class {{model_name}} extends Model
      */
     protected $casts = [
         'status' => 'boolean',
-        'criacao' => DateCast::class.':America/Sao_Paulo,d/m/Y H:i:s:',
-        'atualizacao' => DateCast::class.':America/Sao_Paulo,d/m/Y H:i:s:',
+        'criacao' => DateCast::class.':America/Sao_Paulo,d/m/Y H:i:s',
+        'atualizacao' => DateCast::class.':America/Sao_Paulo,d/m/Y H:i:s',
     ];
 
     /**

@@ -2,6 +2,7 @@
 
 namespace Domain\Venda\Models;
 
+use Domain\Produto\Models\Produto;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Support\Casts\PrecoCast;
 
@@ -51,7 +52,8 @@ class ProdutoVenda extends Pivot
      * @var array
      */
     protected $hidden = [
-        //
+        'produto_id',
+        'venda_id'
     ];
 
     /**
@@ -66,7 +68,54 @@ class ProdutoVenda extends Pivot
     /**
      * Mutators a serem adicionados
      */
-    protected $appends = [
-        //
-    ];
+    protected $appends = [];
+
+    protected static function booted()
+    {
+        parent::booted();
+
+        static::creating(function($produtoVenda) {
+            $produtoVenda->preco = $produtoVenda->produto->preco;
+        });
+    }
+
+    /**
+     * Mutator produto
+     *
+     * @return Model
+     */
+    public function getProdutoAttribute()
+    {
+        return $this->produto()->first()->makeHidden('preco');
+    }
+
+    /**
+     * Mutator venda
+     *
+     * @return Model
+     */
+    public function getVendaAttribute()
+    {
+        return $this->venda()->first()->makeHidden('criacao', 'atualizacao');
+    }
+
+    /**
+     * Relacionamento com produto
+     *
+     * @return void
+     */
+    public function produto()
+    {
+        return $this->belongsTo(Produto::class, 'produto_id');
+    }
+
+    /**
+     * Relacionamento com venda
+     *
+     * @return void
+     */
+    public function venda()
+    {
+        return $this->belongsTo(Venda::class, 'venda_id');
+    }
 }
