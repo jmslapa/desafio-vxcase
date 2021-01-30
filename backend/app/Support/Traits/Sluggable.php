@@ -21,7 +21,7 @@ trait Sluggable {
      * @param boolean $fail
      * @return Model
      */
-    protected function findBySlug(string $slug, $fail = true)
+    public function findBySlug(string $slug, $fail = true)
     {
         $query = $this->query()->where('slug', $slug);
         return $fail ? $query->firstOrFail() : $query->first();
