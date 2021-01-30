@@ -55,7 +55,7 @@ export const errorMessage = css`
     font-size: 12px;
     color: #f64c75;
 `;
-export const dropContainer = css`
+export const floatContainer = css`
     background: #FCFCFC;
     border: 1.5px solid rgba(196, 196, 196, 0.15);
     box-sizing: border-box;
