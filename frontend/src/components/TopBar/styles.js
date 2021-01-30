@@ -11,7 +11,13 @@ export const Wrapper = styled.div`
     left: 0px;
     padding: 10px 15px;
     width: 100%;
+    min-height: 58px;
     border-radius: 8px;
     background: var(--secondary);
     color: var(--light);
+
+    button.collapse-toggle {
+        ${theme};        
+        color: var(--light);
+    }
 `;

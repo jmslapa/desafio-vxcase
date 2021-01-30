@@ -5,7 +5,7 @@ import TopBar from '../../components/TopBar';
 const Produtos = (props) => {
     return (
         <Container>
-            <TopBar />
+            <TopBar title="Produtos"/>
         </Container>
     );
 }

@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
     justify-content: space-between;
     height: 38px;
     width: ${props => props.width || 'auto'};
+    overflow: hidden;
     height: 38px;
     padding: 0 10px;
     background: var(--light);

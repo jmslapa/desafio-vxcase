@@ -4,7 +4,7 @@ import { Wrapper } from './styles';
 
 const SearchField = React.forwardRef(({ width, ...rest }, ref) => {
     return (
-        <Wrapper widht={width}>
+        <Wrapper width={width}>
             <input {...rest} ref={ref} type="text" placeholder="Buscar..."/>
             <Search size={20}/>
         </Wrapper>
