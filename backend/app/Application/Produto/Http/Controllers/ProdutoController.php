@@ -54,9 +54,9 @@ class ProdutoController extends ApiController
     public function update(Request $request, $identifier)
     {
         try{
-            // $data = $this->validator->validate('update', $request->all());
-            // $resource = $this->actions->;
-            // return response()->json(null, 202);
+            $data = $this->validator->validate('update', $request->all());
+            $resource = $this->actions->editarProduto($identifier, $data);
+            return $this->factory->make($resource)->toResponse(null, 202);
         }catch(QueryException $e) {
             return $this->errorResponse($e, 500);
         }catch(ModelNotFoundException $e) {
