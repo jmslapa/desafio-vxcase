@@ -49,7 +49,7 @@ class VendaProvider extends ServiceProvider implements ProviderContract
      */
     public function registerRepository()
     {
-        app()->bind('vendaRespotiroy', VendaRepository::class);
+        app()->bind('vendaRepository', VendaRepository::class);
     }
 
     /**
@@ -82,6 +82,7 @@ class VendaProvider extends ServiceProvider implements ProviderContract
      */
     public function registerActions()
     {
+		app()->bind('efetuarVenda', \Domain\Venda\Actions\EfetuarVenda::class);
         //
     }
 
