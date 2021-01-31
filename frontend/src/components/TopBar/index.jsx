@@ -5,6 +5,7 @@ import Cart from '../Cart';
 import If, { Else } from '../Utils/If';
 import SearchField from '../SearchField';
 import Row from '../Row';
+import history from '../../services/history';
 
 const TopBar = ({ title }) => {
 
@@ -21,8 +22,18 @@ const TopBar = ({ title }) => {
     return(
         <Wrapper>
             <Row width="100%" height="100%" direction="column">
-                <Row width="100%" justify="space-between">
-                    <h1>{ title }</h1>
+                <Row width="100%" justify="space-between" align="center">
+                    <div className="nav">
+                        <button type="button" className="nav-link" onClick={e => history.push('/produtos')}>
+                            <h2>Produtos</h2>                        
+                        </button>
+
+                        <div className="separator"></div>
+
+                        <button type="button" className="nav-link" onClick={e => history.push('/vendas')}>
+                            <h2>Vendas</h2>                        
+                        </button>
+                    </div>
                     <Row width={vw >= 600 ? '284px' : '75px'} justify="space-between" align="center">
                         <If condition={vw >= 600}>                    
                             <SearchField />

@@ -27,7 +27,7 @@ export const CartMenu =styled.div`
         }
 
         ul.list {
-            max-height: 333px;
+            max-height: 222px;
             overflow-x: hidden;
             overflow-y: scroll;
             ${hiddenScrollBar};

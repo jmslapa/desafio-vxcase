@@ -14,6 +14,24 @@ export const Wrapper = styled.div`
     color: var(--light);
     transition: max-height 0.4s;
 
+    .nav {  
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .separator {
+            ${theme}; 
+            width: 2px;
+            height: 20px;
+            margin: 0 10px;   
+            background: var(--light);
+        }
+
+        .nav-link {
+            ${theme};        
+            color: var(--light);
+        }
+    }
+
     .collapse {
         width: 100%;        
         max-height: 0;

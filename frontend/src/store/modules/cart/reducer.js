@@ -1,5 +1,4 @@
 import produce from 'immer';
-import { toast } from 'react-toastify';
 
 const INITIAL_STATE = {
   items: [],

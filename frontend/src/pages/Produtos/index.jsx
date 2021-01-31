@@ -6,7 +6,7 @@ import Lista from './Lista';
 const Produtos = (props) => {
     return (
         <Container>
-            <TopBar title="Produtos"/>
+            <TopBar/>
             <Lista />
         </Container>
     );
