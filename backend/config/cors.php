@@ -27,7 +27,7 @@ return [
 
     'exposed_headers' => [],
 
-    'max_age' => 0,
+    'max_age' => env('APP_ENV', 'production') === 'production' ? 600 : 0,
 
     'supports_credentials' => false,
 
