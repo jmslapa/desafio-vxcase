@@ -10,6 +10,7 @@ import { toast } from 'react-toastify';
 import Spinner from '../Spinner';
 import api from '../../services/api';
 import errorHandler from '../../services/errorHandler';
+import ConfirmationPopUp from '../ConfirmationPopUp';
 
 const Cart = React.forwardRef((props, ref) => {
 
@@ -18,6 +19,7 @@ const Cart = React.forwardRef((props, ref) => {
 
     const cartButton = useRef(null);
 
+    const [confirming, setConfirming] = useState(false);
     const [concluding, setConcluding] = useState(false);
 
     const handleRemove = (item) => {
@@ -37,7 +39,14 @@ const Cart = React.forwardRef((props, ref) => {
         return moment().businessAdd(max).format('DD/MM/YYYY');
     }
 
-    const conclude = () => {
+    const onDecline = () => {
+        cartButton.current.focus();
+        setConfirming(false);
+    }
+
+    const onConfirm = () => {
+        cartButton.current.focus();
+        setConfirming(false);
         setConcluding(true);
         api.post('vendas', { produtos: cart.items.map(i => i.id) })
         .then(() => dispatch(emptyCart()))
@@ -97,14 +106,23 @@ const Cart = React.forwardRef((props, ref) => {
                         </div>
 
                         <div className="footer">
-                            <button type="button" className="finish" onClick={e => conclude()}>
+                            <button type="button" className="finish" onClick={e => setConfirming(true)}>
                                 Finalizar compra
                                 <Handshake size={50}/>
                             </button>
                         </div>                  
                     </If>
+                    <If condition={confirming}>
+                        <ConfirmationPopUp 
+                            position="absolute"
+                            background="rgba(255,255,255,0.9)"
+                            message="Já conferiu tudo? Podemos concluir a sua compra?"
+                            onDecline={onDecline}
+                            onConfirm={onConfirm}
+                        />
+                    </If>
                     <If condition={concluding}>
-                        <Spinner position="absolute" background="#ffffff" scale="0.8">
+                        <Spinner position="absolute" background="rgba(255,255,255,0.9)" scale="0.8">
                             <div className="loader"></div>
                         </Spinner>
                     </If>
