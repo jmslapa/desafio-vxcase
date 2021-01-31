@@ -16,7 +16,7 @@ export default function handle(error, message = defaultMessage) {
                 history.push('/');
                 break;
             case 422:
-                if(message != defaultMessage) {
+                if(message !== defaultMessage) {
                     toast.error(message);
                 } else {            
                     if(error.response.data.errors) {

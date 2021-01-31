@@ -25,18 +25,18 @@ const Lista = (props) => {
     return (       
          <>
             <If condition={loading}>
-                <Spinner position="absolute" background="#ffffff">
+                <Spinner position="fixed" background="#ffffff" zIndex={2}>
                     <div className="loader"></div>
                 </Spinner>
             </If>
-            <Row height="100%" margin="20px 0" wrap="wrap" justify={'space-around'} 
+            <Row height="100%" width="100%" margin="20px 0" wrap="wrap" justify={'space-around'} 
                 overflowY="scroll" overflowX="hidden" noScrollbar
             >
                 {
                     produtos.filter(p => {
                         return p.nome.toLowerCase().includes(search.value.trim().toLowerCase()) 
                             || p.slug.includes(search.value.trim().toLowerCase());
-                    }).map(p => <Card produto={p}/>)
+                    }).map(p => <Card key={`produto_${p.id}`} produto={p}/>)
                 }
             </Row>
          </>

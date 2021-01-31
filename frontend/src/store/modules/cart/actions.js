@@ -8,6 +8,12 @@ export function addProductToCart(product) {
 export function removeProductFromCart(product) {
   return {
     type: '@cart/REMOVE_PRODUCT',
-    payload: { targetId: product.id },
+    payload: { product },
+  };
+}
+
+export function emptyCart() {
+  return {
+    type: '@cart/EMPTY',
   };
 }

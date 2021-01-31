@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Wrapper } from './styles';
-import { Bars, ShoppingCart } from 'styled-icons/fa-solid';
+import { Bars } from 'styled-icons/fa-solid';
+import Cart from '../Cart';
 import If, { Else } from '../Utils/If';
 import SearchField from '../SearchField';
 import Row from '../Row';
@@ -31,7 +32,7 @@ const TopBar = ({ title }) => {
                                 </button>
                             </Else>
                         </If>
-                        <ShoppingCart size={30}/>
+                        <Cart />
                     </Row>
                 </Row>
 

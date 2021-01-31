@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { theme } from '../../styles/styleGuide';
 
 export const Spinner = styled.div`
+  ${theme};
   position: ${props => props.position || 'relative'};
   top: 0px;
   left: 0px;
@@ -11,8 +12,8 @@ export const Spinner = styled.div`
   justify-content: center;
   align-items: center;
   background: ${props => props.background || 'transparent'};
-  transform: ${props => `scale(${props.scale || '1'})`};
   background: ${props => props.background || 'transparend'};
+  z-index: ${props => props.zIndex || '0'};
 
   .loader,
   .loader:before,
@@ -27,12 +28,13 @@ export const Spinner = styled.div`
   }
   .loader {
     ${theme}
-    color: var(--secondary);
+    color: ${props => props.color || 'var(--secondary)'};
     font-size: 10px;
     position: relative;
     top: -25px;
     -webkit-animation-delay: -0.16s;
     animation-delay: -0.16s;
+    transform: ${props => `scale(${props.scale || '1'})`};
   }
   .loader:before,
   .loader:after {
