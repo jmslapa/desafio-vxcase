@@ -46,7 +46,7 @@ const Lista = (props) => {
                             return acc;
                         }, false);
 
-                        let slugsIncludes = names.reduce((acc, curr) => {
+                        let slugsIncludes = slugs.reduce((acc, curr) => {
                             if(curr.includes(searchValue)) {
                                 acc = true;
                             }
