@@ -24,8 +24,8 @@ const TopBar = ({ title }) => {
             <Row width="100%" height="100%" direction="column">
                 <Row width="100%" justify="space-between" align="center">
                     <div className="nav">
-                        <button type="button" className="nav-link" onClick={e => history.push('/produtos')}>
-                            <h2>Produtos</h2>                        
+                        <button type="button" className="nav-link" onClick={e => history.push('/loja')}>
+                            <h2>Loja</h2>                        
                         </button>
 
                         <div className="separator"></div>

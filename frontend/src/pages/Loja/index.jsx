@@ -3,7 +3,7 @@ import Container from '../../components/Container';
 import TopBar from '../../components/TopBar';
 import Lista from './Lista';
 
-const Produtos = (props) => {
+const Loja = (props) => {
     return (
         <Container>
             <TopBar/>
@@ -12,4 +12,4 @@ const Produtos = (props) => {
     );
 }
 
-export default Produtos;
+export default Loja;
