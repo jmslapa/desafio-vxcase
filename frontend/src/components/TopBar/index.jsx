@@ -6,8 +6,12 @@ import If, { Else } from '../Utils/If';
 import SearchField from '../SearchField';
 import Row from '../Row';
 import history from '../../services/history';
+import { useDispatch } from 'react-redux';
+import { changeSearchValue } from '../../store/modules/search/actions';
 
 const TopBar = ({ title }) => {
+
+    const dispatch = useDispatch();
 
     const [vw, setVw] = useState(Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0), []);
 
@@ -19,18 +23,23 @@ const TopBar = ({ title }) => {
         });
     }, []);
 
+    const redirect = (callback) => {
+        dispatch(changeSearchValue(''));
+        callback();
+    }
+
     return(
         <Wrapper>
             <Row width="100%" height="100%" direction="column">
                 <Row width="100%" justify="space-between" align="center">
                     <div className="nav">
-                        <button type="button" className="nav-link" onClick={e => history.push('/loja')}>
+                        <button type="button" className="nav-link" onClick={e => redirect(() => history.push('/loja'))}>
                             <h2>Loja</h2>                        
                         </button>
 
                         <div className="separator"></div>
 
-                        <button type="button" className="nav-link" onClick={e => history.push('/vendas')}>
+                        <button type="button" className="nav-link" onClick={e => redirect(() => history.push('/vendas'))}>
                             <h2>Vendas</h2>                        
                         </button>
                     </div>

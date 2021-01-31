@@ -86,7 +86,10 @@ class ProdutoVenda extends Pivot
      */
     public function getProdutoAttribute()
     {
-        return $this->produto()->first()->makeHidden('preco');
+        $produto = $this->produto()->first()->makeHidden('preco');
+        $capa = $produto->capa;
+        $produto->capa = $capa ? url("storage/$capa") : null;
+        return $produto;
     }
 
     /**

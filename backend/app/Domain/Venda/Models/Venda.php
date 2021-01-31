@@ -136,13 +136,10 @@ class Venda extends Model
      */
     public function getEntregaPrevistaAttribute()
     {
-        $entregaPrevista = $this->produtos()->get()->map(fn($p) => $p->entrega)
+        return $this->produtos()->get()->map(fn($p) => $p->entrega)
             ->sort(fn($a, $b) => $a - $b)
             ->reverse()
             ->first();
-        return Carbon::createFromFormat('d/m/Y H:i:s', $this->momento, 'America/Sao_Paulo')
-            ->addDays($entregaPrevista)
-            ->format('d/m/Y');
     }
 
     /**
